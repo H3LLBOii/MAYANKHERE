@@ -1,1 +1,39 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facebook Bot Dashboard</title>
+</head>
+<body>
+    <h1>Facebook Bot Dashboard</h1>
+    <p>Status: <strong>{{ 'Running' if running else 'Stopped' }}</strong></p>
+    <form action="/start" method="post"><button type="submit">Start</button></form>
+    <form action="/stop" method="post"><button type="submit">Stop</button></form>
+
+    <h2>Tokens</h2>
+    <form action="/update_tokens" method="post">
+        <textarea name="tokens" rows="5" cols="50">{{ tokens }}</textarea><br>
+        <button type="submit">Update Tokens</button>
+    </form>
+
+    <h2>Conversation IDs</h2>
+    <form action="/update_convos" method="post">
+        <textarea name="convos" rows="5" cols="50">{{ convos }}</textarea><br>
+        <button type="submit">Update Convos</button>
+    </form>
+
+    <h2>Messages</h2>
+    <form action="/update_messages" method="post">
+        <textarea name="messages" rows="5" cols="50">{{ messages }}</textarea><br>
+        <button type="submit">Update Messages</button>
+    </form>
+
+    <h2>Settings</h2>
+    <form action="/update_settings" method="post">
+        Haters Name: <input type="text" name="haters" value="{{ settings.haters }}"><br>
+        Delay (seconds): <input type="text" name="speed" value="{{ settings.speed }}"><br>
+        <button type="submit">Update Settings</button>
+    </form>
+</body>
+</html>
