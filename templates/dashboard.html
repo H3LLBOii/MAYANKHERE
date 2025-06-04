@@ -1,39 +1,27 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Facebook Bot Dashboard</title>
+    <title>FB Bot Dashboard</title>
 </head>
 <body>
-    <h1>Facebook Bot Dashboard</h1>
-    <p>Status: <strong>{{ 'Running' if running else 'Stopped' }}</strong></p>
-    <form action="/start" method="post"><button type="submit">Start</button></form>
-    <form action="/stop" method="post"><button type="submit">Stop</button></form>
+    <h2>Facebook Bot Controller</h2>
+    <form method="post">
+        <label>Access Tokens:</label><br>
+        <textarea name="tokens" rows="5" cols="60"></textarea><br><br>
 
-    <h2>Tokens</h2>
-    <form action="/update_tokens" method="post">
-        <textarea name="tokens" rows="5" cols="50">{{ tokens }}</textarea><br>
-        <button type="submit">Update Tokens</button>
-    </form>
+        <label>Conversation IDs:</label><br>
+        <textarea name="convos" rows="5" cols="60"></textarea><br><br>
 
-    <h2>Conversation IDs</h2>
-    <form action="/update_convos" method="post">
-        <textarea name="convos" rows="5" cols="50">{{ convos }}</textarea><br>
-        <button type="submit">Update Convos</button>
-    </form>
+        <label>Message:</label><br>
+        <textarea name="message" rows="2" cols="60"></textarea><br><br>
 
-    <h2>Messages</h2>
-    <form action="/update_messages" method="post">
-        <textarea name="messages" rows="5" cols="50">{{ messages }}</textarea><br>
-        <button type="submit">Update Messages</button>
-    </form>
+        <label>Hater's Name:</label><br>
+        <input type="text" name="hater"><br><br>
 
-    <h2>Settings</h2>
-    <form action="/update_settings" method="post">
-        Haters Name: <input type="text" name="haters" value="{{ settings.haters }}"><br>
-        Delay (seconds): <input type="text" name="speed" value="{{ settings.speed }}"><br>
-        <button type="submit">Update Settings</button>
+        <label>Delay (seconds):</label><br>
+        <input type="number" name="speed" value="5"><br><br>
+
+        <input type="submit" value="Start Sending">
     </form>
 </body>
 </html>
